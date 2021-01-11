@@ -44,5 +44,12 @@ const checkArray = (content) => {
 	return size
 };
 
+const verifyCheckArray = (content) => {
+	const size = checkArray(content)
+	return `The image has ${size} items of arrayBitmap`
+};
+
+module.exports.verifyCheckArray = verifyCheckArray
+
 module.exports = checkArray
 
