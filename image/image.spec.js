@@ -20,7 +20,11 @@ describe('Test image function', () => {
 		const array = Array([1, 2, 3], [44, 55, 66])
 		expect(image(array)).toEqual(3)
 	})
-	it('should TypeError when send "123"', () => {
+	it('should retun 6 when pass Array([1, 2, 3], [4, 5, 6])', () => {
+		const array = Array([1, 2, 3], [4, 5, 6])
+		expect(image(array)).toEqual(6)
+	})
+	it('should TypeError when send ["123"]', () => {
 		try {
 			const value = '123'
 			image(value)
@@ -28,7 +32,7 @@ describe('Test image function', () => {
 			expect(err).toEqual(new TypeError("the content input is array"))
 		}
 	})
-	it('should TypeError when send ["123"]', () => {
+	it('should TypeError when send [["123"]]', () => {
 		try {
 			const value = ['123']
 			image(value)
@@ -38,15 +42,23 @@ describe('Test image function', () => {
 	})
 	it('should TypeError when send [[""]]', () =>  {
 		try {
-			const value = [['']]
+			const value = [[''], ['']]
 			image(value)
 		} catch (err) {
 			expect(err).toEqual(new TypeError('the item is need int'))
 		}
 	})
-	it('should TypeError when send [["1.5"]]', () =>  {
+	it('should TypeError when send [[1],[2],[3]]', () =>  {
 		try {
-			const value = [['']]
+			const value = [[1], [2], [3]]
+			image(value)
+		} catch (err) {
+			expect(err).toEqual(new TypeError('the array content is need be two-dimensional'))
+		}
+	})
+	it('should TypeError when send [["1.5"], [1]]', () =>  {
+		try {
+			const value = Array(['1.5'], [1])
 			image(value)
 		} catch (err) {
 			expect(err).toEqual(new TypeError('the item is need int'))
