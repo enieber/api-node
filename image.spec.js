@@ -4,6 +4,10 @@ describe('Test image function', () => {
 	it('should import image not undefined', () => {
 		expect(image).not.toBeUndefined()
 	})
+	it('should retun 0 when pass Array([100, 200, 300], [44, 55, 66])', () => {
+		const array = Array([100, 200, 300], [44, 55, 66])
+		expect(image(array)).toEqual(0)
+	})
 	it('should retun 1 when pass Array([1, 22, 33], [44, 55, 66])', () => {
 		const array = Array([1, 22, 33], [44, 55, 66])
 		expect(image(array)).toEqual(1)
@@ -32,8 +36,20 @@ describe('Test image function', () => {
 			expect(err).toEqual(new TypeError("the array content is need be two-dimensional"))
 		}
 	})
-	it('should retun 0 when pass Array([100, 200, 300], [44, 55, 66])', () => {
-		const array = Array([100, 200, 300], [44, 55, 66])
-		expect(image(array)).toEqual(0)
+	it('should TypeError when send [[""]]', () =>  {
+		try {
+			const value = [['']]
+			image(value)
+		} catch (err) {
+			expect(err).toEqual(new TypeError('the item is need int'))
+		}
+	})
+	it('should TypeError when send [["1.5"]]', () =>  {
+		try {
+			const value = [['']]
+			image(value)
+		} catch (err) {
+			expect(err).toEqual(new TypeError('the item is need int'))
+		}
 	})
 })
