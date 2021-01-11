@@ -1,0 +1,44 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Telefonica Api",
+		"description": "",
+		"version": "1.0"
+	},
+	"produces": ["application/json"],
+	"paths": {
+		"/image": {
+			"post": {
+				"x-swagger-router-controller": "home",
+				"operationId": "index",
+				"tags": ["/image"],
+				"description": "verify image ",
+				"parameters": [{
+					"name": "image",
+					"in": "json",
+					"type": "array",
+					"items": {
+						"type": "integer"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "response number of items has arrayList [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}	
+	}
+}
