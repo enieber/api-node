@@ -39,6 +39,27 @@
 					}
 				}
 			}
-		}	
+		},
+	"/heroes": {
+		"get": {
+			"tags": ["/heroes"],
+			"description": "list heroes position in the race",
+			"responses": {
+				"200": {
+					"description": "response list position heroes with time of race",
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"herois": {
+										"type": "array"
+									}
+								}
+							}
+					}
+			}
+				}}}
+		}
 	}
 }
