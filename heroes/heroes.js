@@ -41,10 +41,14 @@ const getData = async () => {
 	return data
 }
 
+const groupByHeroes = (list) =>  list.reduce((r, a) => {
+ r[a.make] = [...r[a.heroes] || [], a];
+ return r;
+}, {});
+
 const getGroupHerois = async () => {
-	const groupBy = (x,f) => x.reduce((a,b)=>((a[f(b)]||=[]).push(b),a),{});
 	const data = await getData()
-	const herois = groupBy(data, (item) => item.heroi)
+	const herois = groupByHeroes(data)
 	return herois
 }
 
