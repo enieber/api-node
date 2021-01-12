@@ -3,6 +3,7 @@ const swaggerUi = require('swagger-ui-restify');
 const swaggerDocument = require('./swagger.json');
 
 const imageControll = require('./image/controll');
+const heroesControll = require('./heroes/controll');
 
 const server = restify.createServer();
 
@@ -27,6 +28,7 @@ server.use((req, res, next) => {
 
 server.post('/image', imageControll.imageVerify);
 
+server.get('/heroes', heroesControll.list);
 
 var options = {
   customCss: '.swagger-ui .topbar { display: none }',

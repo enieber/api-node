@@ -13,7 +13,7 @@ const controll = {
 				const errorReceive = new RestifyErrors.BadRequestError(err.message);
 				return next(errorReceive)
 			}
-			const errMessage = new InternalServerError(err.message)
+			const errMessage = new RestifyErrors.InternalServerError(err.message)
 			return next(errMessage)
 		}
 	}
