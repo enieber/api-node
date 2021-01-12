@@ -5,7 +5,7 @@ const getDataFromFile = () => {
 	let data = []
 	return new Promise((resolve, reject) => {
 		const file = readline.createInterface({
-			input: fs.createReadStream(__dirname + '/heroes/heroes.log')
+			input: fs.createReadStream('./heroes.log')
 		})
 		
 		file.on('line', (line) => {
