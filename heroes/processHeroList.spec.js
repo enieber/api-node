@@ -1,4 +1,5 @@
-const separateHeroes = require('./separateHeroes');
+const separateHeroes = require('./processHeroList');
+
 const data = {
     	"038–Superman": [
       	{

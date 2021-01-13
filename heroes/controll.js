@@ -1,7 +1,7 @@
 const RestifyErrors = require('restify-errors');
 
 const heroes = require("./heroes");
-const separateHeroes = require('./separateHeroes');
+const separateHeroes = require('./processHeroList');
 
 const orderByHora = (a, b) => {
 	if (a.hora > b.hora) {
