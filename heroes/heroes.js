@@ -2,36 +2,27 @@ const readline = require('readline');
 const fs = require('fs');
 const path = require('path');
 
+const groupByHeroes = require('./groupByHeroes');
+const lineToHero = require('./lineToHero');
+
+const dirPath = path.join(__dirname, '/heroes.log');
+
 const getDataFromFile = () => {
 	let data = []
 	return new Promise((resolve, reject) => {
-	const dirPath = path.join(__dirname, '/heroes.log');
 		const file = readline.createInterface({
 			input: fs.createReadStream(dirPath)
 		})
 		
 		file.on('line', (line) => {
-			const lineSplit = line.split(';')
-
-			if (lineSplit[1]) {
-				const hora = lineSplit[0];
-				const heroi = lineSplit[1];
-				const numberReturn = lineSplit[2];
-				const timeReturn = lineSplit[3];
-				const vm = lineSplit[4];
-			
-				const obj = {
-					hora,
-					heroi,
-					numberReturn,
-					timeReturn,
-					vm
-				}
-				data.push(obj)
+			const hero = lineToHero(line)
+			if (hero) {
+				data.push(hero)
 			}
 		})
 		
 		file.on('close', () => {
+			// use shift to remove header of list heroes race
 			const newData = data.shift();
 			resolve(data)
 		})
@@ -42,11 +33,6 @@ const getData = async () => {
 	const data = await getDataFromFile()
 	return data
 }
-
-const groupByHeroes = (list) =>  list.reduce((r, a) => {
- r[a.make] = [...r[a.heroes] || [], a];
- return r;
-}, {});
 
 const getGroupHerois = async () => {
 	const data = await getData()
