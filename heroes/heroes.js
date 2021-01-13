@@ -1,11 +1,13 @@
 const readline = require('readline');
 const fs = require('fs');
+const path = require('path');
 
 const getDataFromFile = () => {
 	let data = []
 	return new Promise((resolve, reject) => {
+	const dirPath = path.join(__dirname, '/heroes.log');
 		const file = readline.createInterface({
-			input: fs.createReadStream('/heroes/heroes.log')
+			input: fs.createReadStream(dirPath)
 		})
 		
 		file.on('line', (line) => {
