@@ -21,5 +21,69 @@ Este projeto tem como objetivo resolver alguns desafios propostos
 
 Para desenvolver o projeto é necessario nodejs e npm.
 
-- instalar dependendcias usando `npm install`
-- rodar o server em modo dev usando `npm run dev`
+- instalar dependendcias usando `yarn`
+- rodar o server em modo dev usando `yarn dev`
+
+## Endpoints
+
+- Images
+
+```
+  POST: /images
+  
+  request:
+  {
+    "image": [[1, 2, 3], [4,5]]
+  }
+  
+  response:
+  {
+    "message": "The image has 5 items of arrayBitmap"
+  }
+```
+
+- Heroes
+
+```
+  GET: /heroes
+  
+  request:
+  {}
+  
+  response: {
+    "herois": [
+      {
+        "position": 1,
+        "superHero": "038–Superman",
+        "time": "4:11.578",
+        "finishRun": true,
+        "hora": "23:52:17.003"
+      },
+      {
+        "position": 2,
+        "superHero": "002–Mercúrio",
+        "time": "4:15.153",
+        "finishRun": true,
+        "hora": "23:52:22.120"
+      },
+      {
+        "position": 3,
+        "superHero": "033–Flash",
+        "time": "4:16.08",
+        "finishRun": true,
+        "hora": "23:52:22.586"
+      },
+      {
+        "position": 4,
+        "superHero": "023–Sonic",
+        "time": "4:17.722",
+        "finishRun": true,
+        "hora": "23:52:25.975"
+      }
+    ]
+  }
+  
+  
+```
+
+
