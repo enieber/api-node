@@ -29,20 +29,25 @@ const checkArray = (content) => {
 		throw TypeError('the content input is array')
 	}
 	
-	if (content.length !== 2) {
-			throw TypeError('the array content is need be two-dimensional')
-	}
-
 	let size = 0
 	content.map(contentItem => {
 		if (!Array.isArray(contentItem)) {
 			throw TypeError('the array content is need be two-dimensional')
 		}
 		
-		contentItem.map(y => {
-			const hasItem = findArrayList(y)
-			if (hasItem) {
-				size++
+		contentItem.map(item => {
+			if(Array.isArray(item)) {
+				item.map(_item => {
+					const hasItem = findArrayList(_item)
+					if (hasItem) {
+						size++;
+					}
+				})
+			} else {
+				const hasItem = findArrayList(item)
+				if (hasItem) {
+					size++;
+				}
 			}
 		})
 	})
