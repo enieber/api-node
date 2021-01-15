@@ -23,6 +23,7 @@ Para desenvolver o projeto é necessario nodejs e npm.
 
 - instalar dependendcias usando `yarn`
 - rodar o server em modo dev usando `yarn dev`
+- acessar em http://localhost:8080
 
 ## Endpoints
 
