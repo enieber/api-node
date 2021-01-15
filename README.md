@@ -87,4 +87,7 @@ Para desenvolver o projeto é necessario nodejs e npm.
   
 ```
 
+## Insomnia
+
+Para testar usando insomnia foi adicionado o arquivo insomnia.json, basta importar o arquivo no [insomnia](https://insomnia.rest/)
 
